@@ -3,9 +3,9 @@ import { Fund } from '../fund';
 import { FundService } from '../fund.service';
 
 @Component({
-  selector: 'fund-details',
-  templateUrl: './fund-details.component.html',
-  styleUrls: ['./fund-details.component.css']
+  selector: 'fund-detail',
+  templateUrl: './fund-detail.component.html',
+  styleUrls: ['./fund-detail.component.css']
 })
 
 export class FundDetailsComponent {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Fund } from '../fund';
 import { FundService } from '../fund.service';
-import { FundDetailsComponent } from '../fund-details/fund-details.component';
+import { FundDetailsComponent } from '../fund-detail/fund-detail.component';
 
 @Component({
   selector: 'fund-list',
