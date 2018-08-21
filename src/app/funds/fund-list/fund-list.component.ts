@@ -1,0 +1,52 @@
+import { Component, OnInit } from '@angular/core';
+import { Fund } from '../fund';
+import { FundService } from '../fund.service';
+import { FundDetailsComponent } from '../fund-details/fund-details.component';
+
+@Component({
+  selector: 'fund-list',
+  templateUrl: './fund-list.component.html',
+  styleUrls: ['./fund-list.component.css'],
+  providers: [FundService]
+})
+
+export class FundListComponent implements OnInit {
+
+  funds: Fund[]
+  selectedFund: Fund
+
+  constructor(private fundService: FundService) { }
+
+  ngOnInit() {
+     this.fundService
+      .getFunds()
+      .then((funds: Fund[]) => {
+        this.funds = funds.map((fund) => {
+          if (!fund.phone) {
+            fund.phone = {
+              mobile: '',
+              work: ''
+            }
+          }
+          return fund;
+        });
+      });
+  }
+
+  private getIndexOfFund = (fundId: String) => {
+    return this.funds.findIndex((fund) => {
+      return fund._id === fundId;
+    });
+  }
+
+  selectFund(fund: Fund) {
+    this.selectedFund = fund
+  }
+
+  addFund = (fund: Fund) => {
+    this.funds.push(fund);
+    this.selectFund(fund);
+    return this.funds;
+  }
+
+}
