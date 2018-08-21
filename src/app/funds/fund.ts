@@ -5,4 +5,5 @@ export class Fund {
   phone: {
     mobile: string;
     work: string;
+  }
 }
