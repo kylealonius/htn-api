@@ -12,7 +12,7 @@ export class FundService {
     getFunds(): Promise<void | Fund[]> {
       return this.http.get(this.fundsUrl)
                  .toPromise()
-                 .then(response => response.json() as fund[])
+                 .then(response => response.json() as Fund[])
                  .catch(this.handleError);
     }
 

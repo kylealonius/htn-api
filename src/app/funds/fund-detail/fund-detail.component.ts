@@ -8,7 +8,7 @@ import { FundService } from '../fund.service';
   styleUrls: ['./fund-detail.component.css']
 })
 
-export class FundDetailsComponent {
+export class FundDetailComponent {
   @Input()
   fund: Fund;
 
