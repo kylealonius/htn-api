@@ -1,9 +1,6 @@
 export class Fund {
 	_id?: string;
+  code: string;
   name: string;
-  email: string;
-  phone: {
-    mobile: string;
-    work: string;
-  }
+  frenchName: string;
 }
