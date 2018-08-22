@@ -21,9 +21,7 @@ export class FundListComponent implements OnInit {
      this.fundService
       .getFunds()
       .then((funds: Fund[]) => {
-        this.funds = funds.map((fund) => {}
-          return fund;
-        });
+        this.funds = funds;
       });
   }
 
