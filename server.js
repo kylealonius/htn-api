@@ -55,6 +55,23 @@ app.get("/api/funds", function(req, res) {
 	});
 });
 
+app.post("/api/funds", function(req, res) {
+  var newFund = req.body;
+  newFund.createDate = new Date();
+
+  if (!req.body.name) {
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  } else {
+    db.collection(FUNDS_COLLECTION).insertOne(newFund, function(err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to create new fund.");
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
+    });
+  }
+});
+
 
 /*  "/api/funds/:id"
  *    GET: find fund by id
